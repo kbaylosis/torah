@@ -34,6 +34,9 @@ var rc;
 try {
   sails = require('sails');
   rc = require('sails/accessible/rc');
+
+	// Start server
+	sails.lift(rc('sails'));
 } catch (e) {
   console.error('Encountered an error when attempting to require(\'sails\'):');
   console.error(e.stack);
@@ -44,9 +47,4 @@ try {
   console.error('Alternatively, if you have sails installed globally (i.e. you did `npm install -g sails`), you can use `sails lift`.');
   console.error('When you run `sails lift`, your app will still use a local `./node_modules/sails` dependency if it exists,');
   console.error('but if it doesn\'t, the app will run with the global sails instead!');
-  return;
 }//-•
-
-
-// Start server
-sails.lift(rc('sails'));
