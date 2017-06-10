@@ -10,5 +10,5 @@ module.exports = {
 		setTimeout(() => {
 			res.ok();
 		}, 3000);
-	}
+	},
 };
