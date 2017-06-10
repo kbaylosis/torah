@@ -40,18 +40,10 @@
 
   "rules": {
     "callback-return":              [2, ["callback", "cb", "next", "done", "proceed"]],
-    "camelcase":                    [1, {"properties": "always"}],
-    "comma-style":                  [2, "last"],
-    "curly":                        [2],
     "eqeqeq":                       [2, "always"],
-    "eol-last":                     [1],
     "handle-callback-err":          [2],
-    "indent":                       "off", //[2, 2, {"SwitchCase": 1}],
-    "linebreak-style":              [2, "unix"],
-    "no-mixed-spaces-and-tabs":     [2, "smart-tabs"],
     "no-return-assign":             [2, "always"],
     "no-sequences":                 [2],
-    "no-trailing-spaces":           [1],
     "no-undef":                     [0],
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // ^^Note: If this "no-undef" rule is enabled (set to `[2]`), then model globals
@@ -60,7 +52,85 @@
     "no-unexpected-multiline":      [1],
     "no-unused-vars":               [1],
     "one-var":                      [2, "never"],
-    "semi":                         [2, "always"]
+
+    // Best Practices
+    "curly": "error",
+
+    // Node.js and Common.js
+    "global-require": "error",
+
+    // Stylistic Issues
+    "block-spacing": "error",
+    "brace-style": "error",
+    "camelcase": "error",
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "comma-style": ["error", "last"],
+    "comma-dangle": ["error", "always-multiline"],
+    "consistent-this": ["error", "that"],
+    "eol-last": ["error", "always"],
+    "func-call-spacing": ["error", "never"],
+    "keyword-spacing": ["error", { "after": true }],
+    "indent": ["error", "tab"],
+    "line-comment-position": ["error", { "position": "above" }],
+    "linebreak-style": ["error", "unix"],
+    "max-depth": ["error", 4],
+    "max-len": ["error", 100, 2],
+    "max-statements": ["error", 20],
+    "max-statements-per-line": ["error", { "max": 1 }],
+    "new-cap": ["error", { "newIsCap": true }],
+    "new-parens": "error",
+    "newline-after-var": ["error", "always"],
+    "newline-before-return": "error",
+    "no-inline-comments": "error",
+    "no-lonely-if": "error",
+    "no-mixed-operators": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
+    "no-negated-condition": "error",
+    "no-nested-ternary": "error",
+    "no-new-object": "error",
+    "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+    "no-unneeded-ternary": "error",
+    "no-whitespace-before-property": "error",
+    "operator-assignment": ["error", "always"],
+    "operator-linebreak": ["error", "after"],
+    "quote-props": ["error", "as-needed"],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "space-infix-ops": "error",
+    "space-unary-ops": "error",
+    "spaced-comment": ["error", "always"],
+
+    // ES6
+    "arrow-parens": ["error", "always"],
+    "arrow-spacing": "error",
+    "constructor-super": "error",
+    "no-const-assign": "error",
+    "no-dupe-class-members": "error",
+    "no-duplicate-imports": "error",
+    "no-new-symbol": "error",
+    "no-this-before-super": "error",
+    "no-useless-computed-key": "error",
+    "no-useless-constructor": "error",
+    "no-useless-rename": "error",
+    "no-var": "error",
+    "object-shorthand": "error",
+    "prefer-arrow-callback": "error",
+    "prefer-const": "error",
+    "prefer-destructuring": ["error", {
+      "array": false,
+      "object": true
+    }, {
+      "enforceForRenamedProperties": false
+    }],
+    "prefer-numeric-literals": "error",
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+    "prefer-template": "error",
+    "require-yield": "error",
+    "rest-spread-spacing": ["error", "never"],
+    "symbol-description": "error",
+    "yield-star-spacing": ["error", "after"]
   }
 
 }
