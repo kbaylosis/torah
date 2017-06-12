@@ -12,7 +12,7 @@
     "sails-hook-grunt": "^2.0.0",
     "sails-hook-orm": "^2.0.0-16",
     "sails-hook-sockets": "^1.4.0",
-    "sails-swagger": "git@github.com:kbaylosis/sails-swagger.git"
+    "sails-swagger": "https://github.com/kbaylosis/json-policy.git"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
