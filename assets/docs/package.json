@@ -1,0 +1,107 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "swagger-ui-dist",
+        "scope": null,
+        "escapedName": "swagger-ui-dist",
+        "name": "swagger-ui-dist",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/kennethbaylosis/data/codebase/oss/torah"
+    ]
+  ],
+  "_from": "swagger-ui-dist@latest",
+  "_id": "swagger-ui-dist@3.0.14",
+  "_inCache": true,
+  "_location": "/swagger-ui-dist",
+  "_nodeVersion": "6.9.5",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/swagger-ui-dist-3.0.14.tgz_1497069920655_0.7335906499065459"
+  },
+  "_npmUser": {
+    "name": "swagger",
+    "email": "apiteam@swagger.io"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "swagger-ui-dist",
+    "scope": null,
+    "escapedName": "swagger-ui-dist",
+    "name": "swagger-ui-dist",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/swagger-ui-dist/-/swagger-ui-dist-3.0.14.tgz",
+  "_shasum": "02917218556eb6e75adade24ed3f1f43f0e2b704",
+  "_shrinkwrap": null,
+  "_spec": "swagger-ui-dist",
+  "_where": "/Users/kennethbaylosis/data/codebase/oss/torah",
+  "bugs": {
+    "url": "https://github.com/swagger-api/swagger-ui/issues"
+  },
+  "contributors": [
+    {
+      "url": "in alphabetical order"
+    },
+    {
+      "name": "Anna Bodnia",
+      "email": "anna.bodnia@gmail.com"
+    },
+    {
+      "name": "Buu Nguyen",
+      "email": "buunguyen@gmail.com"
+    },
+    {
+      "name": "Josh Ponelat",
+      "email": "jponelat@gmail.com"
+    },
+    {
+      "name": "Kyle Shockey",
+      "email": "kyleshockey1@gmail.com"
+    },
+    {
+      "name": "Robert Barnwell",
+      "email": "robert@robertismy.name"
+    },
+    {
+      "name": "Sahar Jafari",
+      "email": "shr.jafari@gmail.com"
+    }
+  ],
+  "dependencies": {},
+  "description": "This module, `swagger-ui-dist`, exposes Swagger-UI's entire dist folder as a dependency-free npm module. Use `swagger-ui` instead, if you'd like to have npm install dependencies for you.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "02917218556eb6e75adade24ed3f1f43f0e2b704",
+    "tarball": "https://registry.npmjs.org/swagger-ui-dist/-/swagger-ui-dist-3.0.14.tgz"
+  },
+  "homepage": "https://github.com/swagger-api/swagger-ui#readme",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "swagger",
+      "email": "apiteam@swagger.io"
+    }
+  ],
+  "name": "swagger-ui-dist",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/swagger-api/swagger-ui.git"
+  },
+  "scripts": {},
+  "version": "3.0.14"
+}

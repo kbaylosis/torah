@@ -35,5 +35,5 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
+	"GET /users" : "UserController.find"
 };

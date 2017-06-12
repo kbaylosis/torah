@@ -5,11 +5,19 @@
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
 
-module.exports = {
+const User = {
 
 	attributes: {
-
-
+		firstname : {
+			type : "string",
+			required : true,
+			description : "User's first name",
+		},
+		lastname : {
+			type : "string",
+		},
 	},
 
 };
+
+export default User;
