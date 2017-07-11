@@ -28,3 +28,4 @@ Gruntfile.js
 config
 tasks
 assets/docs
+test
