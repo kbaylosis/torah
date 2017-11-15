@@ -16,21 +16,14 @@ module.exports = function isLoggedIn(req, res, next) {
 		if (err) {
 			res.status(403);
 
-			return res.send("You are not permitted to perform this action.");
+			return res.send("Administrator access only.");
 		} else if (session.length < 1) {
 			res.status(403);
 
-			return res.send("You are not permitted to perform this action.");
+			return res.send("Administrator access only.");
 		}
 
 		session = JSON.parse(session);
-
-		if (!_.isArray(session)) {
-			req.userId = session.userId.id;
-			req.token = session.accessToken;
-
-			return next();
-		}
 
 		req.userId = session[0].userId.id;
 		req.token = session[0].accessToken;
@@ -45,18 +38,12 @@ module.exports = function isLoggedIn(req, res, next) {
 			isAdmin: session[0].userId.isAdmin,
 		};
 
+		if (!req.userInfo.isAdmin) {
+			res.status(403);
+
+			return res.send("Administrator access only.");
+		}
+
 		return next();
 	});
-
-	// If `req.session.userId` is set, then we know that this request originated
-	// from a logged-in user.  So we can safely proceed to the next policy--
-	// or, if this is the last policy, the relevant action.
-	// if (req.session.userId) {
-	//   return next();
-	// }
-
-	// --•
-	// Otherwise, this request did not come from a logged-in user.
-	// return res.forbidden();
-
 };
