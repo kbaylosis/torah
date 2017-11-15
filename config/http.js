@@ -29,16 +29,79 @@ module.exports.http = {
     *                                                                          *
     ***************************************************************************/
 
-    // order: [
-    //   'cookieParser',
-    //   'session',
-    //   'bodyParser',
-    //   'compress',
-    //   'poweredBy',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    // ],
+		order: [
+			"cookieParser",
+			"session",
+			"bodyParser",
+			"compress",
+			"xframe",
+			// "csp",
+			"strictTransportSecurity",
+			"referrerPolicy",
+			"xssProtection",
+			"contentOptions",
+			"poweredBy",
+			"apiVersion",
+			"printRequest",
+			"router",
+			"www",
+			"favicon",
+		],
+
+		/***************************************************************************
+		*                                                                          *
+		* Custom middleware; logs each request to the console.                     *
+		*                                                                          *
+		***************************************************************************/
+
+		xframe: require("lusca").xframe("SAMEORIGIN"),
+
+		// csp: require("lusca").csp({
+		// 	policy: {
+		// 		"default-src": "https: 'self' 'unsafe-eval' 'unsafe-inline' wss:",
+		// 		"img-src": "https: 'self' data:",
+		// 	}
+		// }),
+
+		strictTransportSecurity: require("lusca").hsts({ maxAge: 31536000 }),
+
+		referrerPolicy: (req, res, next) => {
+			res.setHeader("Referrer-Policy", "no-referrer-when-downgrade");
+
+			next();
+		},
+
+		xssProtection: (req, res, next) => {
+			res.setHeader("X-XSS-Protection", "1; mode=block");
+
+			next();
+		},
+
+		contentOptions: (req, res, next) => {
+			res.setHeader("X-Content-Type-Options", "nosniff");
+
+			next();
+		},
+
+		poweredBy: (req, res, next) => {
+			res.setHeader("X-Powered-By", "Zoog Technologies, Inc.");
+
+			next();
+		},
+
+		apiVersion: (req, res, next) => {
+			const p = require("../package.json");
+
+			res.setHeader("X-Api", p.version);
+
+			next();
+		},
+
+		printRequest: (req, res, next) => {
+			sails.log.verbose(`${req.hostname} - ${req.method} - ${req.url}`);
+
+			next();
+		}
 
 
     /***************************************************************************
