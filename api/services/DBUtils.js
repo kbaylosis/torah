@@ -1,11 +1,16 @@
 import traverse from "traverse";
 import { ObjectID } from "mongodb";
-
+import propPath from "property-path";
+import _ from "lodash";
 
 const isObjectID = (value) => {
-	const objId = new ObjectID(value);
+	try {
+		const objId = new ObjectID(value);
 
-	return (objId.toString() === value) ? objId : null;
+		return (objId.toString() === value) ? objId : null;
+	} catch (e) {
+		return null;
+	}
 };
 
 const toObjectIDs = (json) => {
@@ -23,35 +28,70 @@ const toObjectIDs = (json) => {
 			// NOTE: Do not traverse the new value anymore
 			this.update(objId, true);
 		}
+
+		//
+		// Use the native id format
+		//
+		if (this.key === "id") {
+			this.parent["_id"] = item;
+			this.delete();
+		}
 	});
+
+	return json;
+};
+
+const substitute = (obj, substitutions) => {
+	_.forEach(substitutions, (value, key) => {
+		if (propPath.get(obj, key) !== undefined) {
+			propPath.set(obj, key, value);
+		}
+	});
+
+	return obj;
 };
 
 const DbUtils = {
-	findOrCreate : (modelObj, findCriteria, recordToCreate, populate = true) =>
-		new Promise((resolve, reject) => {
+	findOrCreate : (model, findCriteria, recordToCreate, substitutions) =>
+		new Promise(async (resolve, reject) => {
 			try {
-				modelObj.findOrCreate(findCriteria, recordToCreate)
-				.exec(async (err, record, createdOrFound) => {
-					if (err) {
-						return reject(err);
-					}
+				sails.log.debug("DbUtils::findOrCreate");
+				const origFind = _.extend({}, findCriteria);
 
-					if (populate) {
-						record = await modelObj.findOne({ id : record.id }).populateAll();
-					}
+				sails.log.debug(JSON.stringify(origFind));
+				substitute(origFind, substitutions);
 
-					resolve({ record, new: createdOrFound });
+				substitute(toObjectIDs(findCriteria), substitutions);
+				substitute(toObjectIDs(recordToCreate), substitutions);
+
+				const collection = model.getDatastore().manager.collection(model.tableName);
+
+				const obj = await collection.findOneAndUpdate(findCriteria, {
+					$setOnInsert: recordToCreate,
+				}, {
+					returnOriginal: false,
+					upsert : true,
 				});
+
+				//
+				// Use the standard "id" format
+				//
+				obj.value.id = obj.value._id;
+				delete obj.value._id;
+
+				sails.log.debug("DbUtils::findOrCreate::Done");
+				sails.log.debug({ record: obj.value, new: obj.lastErrorObject.upserted });
+				resolve({ record: obj.value, new: obj.lastErrorObject.upserted });
 			} catch (e) {
 				reject(e);
 			}
 		}),
 
-	nativeUpdate : async (model, findCriteria, recordToUpdate, upsert = false) =>
+	nativeUpdate : async (model, findCriteria, recordToUpdate, substitutions = {}, upsert = false) =>
 		new Promise(async (resolve, reject) => {
 			try {
-				toObjectIDs(findCriteria);
-				toObjectIDs(recordToUpdate);
+				substitute(toObjectIDs(findCriteria), substitutions);
+				substitute(toObjectIDs(recordToUpdate), substitutions);
 
 				const collection = model.getDatastore().manager.collection(model.tableName);
 				const options = {
@@ -59,14 +99,25 @@ const DbUtils = {
 					upsert,
 				};
 
-				collection.update(findCriteria, recordToUpdate, options, (err, result) => {
-					if (err) {
+				let result = await collection.update(findCriteria, recordToUpdate, options);
 
-						return reject(err);
-					}
+				if (!result.result.ok) {
+					return reject(result.result);
+				}
 
-					return resolve(result);
-				});
+				result = await collection.findOne(findCriteria);
+
+				if (!result) {
+					resolve();
+				}
+
+				//
+				// Use the standard "id" format
+				//
+				result.id = result._id;
+				delete result._id;
+
+				resolve(result);
 			} catch (e) {
 				reject(e);
 			}
