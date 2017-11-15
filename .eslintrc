@@ -75,7 +75,7 @@
     "linebreak-style": ["error", "unix"],
     "max-depth": ["error", 4],
     "max-len": ["error", 100, 2],
-    "max-statements": ["error", 20],
+    "max-statements": ["error", 50],
     "max-statements-per-line": ["error", { "max": 1 }],
     "new-cap": ["error", { "newIsCap": true }],
     "new-parens": "error",
