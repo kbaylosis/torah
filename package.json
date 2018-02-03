@@ -27,7 +27,7 @@
     "sails-hook-sockets": "^1.4.0",
     "sails-hook-winston": "^1.1.0",
     "sails-mongo": "^1.0.0-9",
-    "sails-swagger": "github:kbaylosis/sails-swagger",
+    "sails-swagger": "https://github.com/kbaylosis/sails-swagger.git",
     "traverse": "^0.6.6",
     "winston-slack-webhook": "^0.1.4",
     "zsign": "0.0.6"
