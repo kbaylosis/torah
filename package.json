@@ -46,7 +46,7 @@
   "scripts": {
     "start": "npm run lint && babel-node app.js && NODE_ENV=production node app.js",
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
-    "lint": "node ./node_modules/eslint/bin/eslint . --format table --max-warnings=1 && echo '✔  Your code looks good.'",
+    "lint": "node ./node_modules/eslint/bin/eslint . --format table --max-warnings=1 --fix && echo '✔  Your code looks good.'",
     "debug": "npm run lint && node debug app.js",
     "babel": "npm run lint && babel-node app.js"
   },
