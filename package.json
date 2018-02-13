@@ -42,6 +42,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^3.19.0",
+    "nodemon": "^1.14.12",
     "swagger-ui-dist": "^3.0.14"
   },
   "scripts": {
@@ -49,7 +50,8 @@
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "node ./node_modules/eslint/bin/eslint . --format table --max-warnings=1 --fix && echo '✔  Your code looks good.'",
     "debug": "npm run lint && node debug app.js",
-    "babel": "npm run lint && babel-node app.js"
+    "babel": "npm run lint && babel-node app.js",
+    "restartable": "nodemon --exec npm start"
   },
   "main": "app.js",
   "repository": {
