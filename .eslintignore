@@ -25,7 +25,6 @@
 assets/dependencies/**/*.js
 app.js
 Gruntfile.js
-config
 tasks
 assets
 assets/docs
