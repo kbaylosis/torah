@@ -12,7 +12,7 @@
 
 module.exports.blueprints = {
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * Automatically expose implicit routes for every action in your app?       *
   *                                                                          *
@@ -21,26 +21,26 @@ module.exports.blueprints = {
   // actions: false,
 
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * Automatically expose RESTful routes for your models?                     *
   *                                                                          *
   ***************************************************************************/
 
-  rest: true,
+	rest: true,
 
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * Automatically expose CRUD "shortcut" routes to GET requests?             *
   * (These are enabled by default in development only.)                      *
   *                                                                          *
   ***************************************************************************/
 
-  shortcuts: false,
+	shortcuts: false,
 
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * Optional mount path prefix for all implicit blueprint routes ("shadows") *
   *                                                                          *
@@ -49,17 +49,17 @@ module.exports.blueprints = {
   // prefix: '',
 
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * Whether to use plural model names in blueprint routes                    *
   * (e.g. `/users` for the `User` model)                                     *
   *                                                                          *
   ***************************************************************************/
 
-  pluralize: true,
+	pluralize: true,
 
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
   * Automatically enroll sockets requesting the `find` blueprint action to   *
   * receive special notifications about any new records for the same model.  *
