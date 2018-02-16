@@ -23,7 +23,7 @@
     "property-path": "^0.0.5",
     "random-token": "0.0.8",
     "request": "^2.81.0",
-    "sails": "^1.0.0-34",
+    "sails": "^1.0.0-44",
     "sails-hook-grunt": "^2.0.0",
     "sails-hook-orm": "^2.0.0-16",
     "sails-hook-sockets": "^1.4.0",

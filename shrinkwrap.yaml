@@ -17,7 +17,7 @@ dependencies:
   property-path: 0.0.5
   random-token: 0.0.8
   request: 2.83.0
-  sails: 1.0.0-46
+  sails: 1.0.0-44
   sails-hook-grunt: 2.2.1
   sails-hook-orm: 2.0.0-23
   sails-hook-sockets: 1.5.1
@@ -1585,7 +1585,7 @@ packages:
       integrity: sha1-ZF/ErfWLcrZJ1crmUTVhnbJv8UM=
   /compressible/2.0.12:
     dependencies:
-      mime-db: 1.32.0
+      mime-db: 1.33.0
     dev: false
     engines:
       node: '>= 0.6'
@@ -4513,19 +4513,6 @@ packages:
       npm: '>= 2.0.0'
     resolution:
       integrity: sha512-yaA404mKNlosooM64y6TQzdiW1t9y2ALst0o1p+ztUbe0vY9714+kE0YB2U4X8tqIkFS2FPisuA3cwCP2Lepkg==
-  /machine/15.0.0-22:
-    dependencies:
-      '@sailshq/lodash': 3.10.2
-      anchor: 1.2.0
-      flaverr: 1.9.0
-      parley: 3.3.4
-      rttc: 10.0.0-4
-    dev: false
-    engines:
-      node: '>= 4.0.0'
-      npm: '>= 2.0.0'
-    resolution:
-      integrity: sha512-MR+bfzN5fatzJFlqdM/paH33xPngJk4URJ8OytivVUh2ZcUYvkNEXY7DQ7hnPfTWQE35alHUHUrH+0gAnKcNyA==
   /machine/4.1.1:
     dependencies:
       convert-to-ecmascript-compatible-varname: 0.1.5
@@ -4776,12 +4763,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-dMZD2i3Z1qRTmZY0ZbJtXKfXHwE=
-  /mime-db/1.32.0:
+  /mime-db/1.33.0:
     dev: false
     engines:
       node: '>= 0.6'
     resolution:
-      integrity: sha512-+ZWo/xZN40Tt6S+HyakUxnSOgff+JEdaneLWIm0Z6LmpCn5DMcZntLyUY5c/rTDog28LhXLKOUZKoTxTCAdBVw==
+      integrity: sha512-BHJ/EKruNIqJf/QahvxwQZXKygOQ256myeN/Ew+THcAa5q+PjyTTMMeNQC4DZw5AwfvelsUrA6B67NKMqXDbzQ==
   /mime-types/2.1.17:
     dependencies:
       mime-db: 1.30.0
@@ -5240,10 +5227,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-8/dSL073gjSNqBYbrZ7P1Rv4OnU=
-  /parasails/0.5.2:
+  /parasails/0.5.3:
     dev: false
     resolution:
-      integrity: sha512-32eRW/sljIgKXnHyHCPT7j8Dcm+oTRo+jqCEg7MfjvqSN01/6vU60aTJhJ/GpX4Y0keWYazHC3Fe2/ZSFAEF9g==
+      integrity: sha512-8QeF10oyJq2K7Zf30ykQp74kRzTL8mkqaPtFFttnF3/GJeahawZ3Pl67suOi3NbWmsc8tbOJfyewLNLWGliz6w==
   /parley/3.3.4:
     dependencies:
       '@sailshq/lodash': 3.10.2
@@ -6096,7 +6083,7 @@ packages:
       fs-extra: 0.30.0
       lodash: 3.10.1
       machinepack-process: 2.0.2
-      parasails: 0.5.2
+      parasails: 0.5.3
       read: 1.0.7
       reportback: 2.0.1
       sails.io.js-dist: 1.1.13
@@ -6188,7 +6175,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-H34Cab48qm4mWciG2LjfIhaeOpmON5IuOm7wvdZmfCgY2MxGn+QTk+wP5V6/fTn/vJSZ/Fd/yaOmxVix7bFH7g==
-  /sails/1.0.0-46:
+  /sails/1.0.0-44:
     dependencies:
       '@sailshq/lodash': 3.10.2
       async: 2.5.0
@@ -6209,7 +6196,7 @@ packages:
       glob: 7.1.2
       i18n-2: 0.6.3
       include-all: 4.0.3
-      machine: 15.0.0-22
+      machine: 15.0.0-20
       machine-as-action: 10.1.1
       machinepack-process: 2.0.2
       machinepack-redis: 1.3.0
@@ -6239,7 +6226,7 @@ packages:
       node: '>= 0.10.0'
       npm: '>= 1.4.0'
     resolution:
-      integrity: sha512-p1+uKhCdPx1OqG9WmY6UzlT/XzEHvoO7yKgSWpzm+Juj+su4Ce3BFdbGzujxIk5sNVky/eaAD5tZPb4/8WnSgw==
+      integrity: sha512-IWe8kAJqHlq5/YttuGalawCMFm8MuO3BLtj6O2+LTQEt9hlMA9iwnHGSL6sbxumNhnVFUlv5SFBR3berizXfFQ==
   /semver-diff/2.1.0:
     dependencies:
       semver: 5.5.0
@@ -7568,7 +7555,7 @@ specifiers:
   property-path: ^0.0.5
   random-token: 0.0.8
   request: ^2.81.0
-  sails: ^1.0.0-34
+  sails: ^1.0.0-44
   sails-hook-grunt: ^2.0.0
   sails-hook-orm: ^2.0.0-16
   sails-hook-sockets: ^1.4.0
