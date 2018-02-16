@@ -20,6 +20,20 @@ class Request {
 
 	delete = (route) => this._request(route, "DELETE");
 
+	static pipe = (url, req, res) => {
+		if (!url) {
+			return res.notFound();
+		}
+
+		const host = request(url).on("error", (err) => {
+			sails.log.error(err);
+			res.notFound();
+		});
+
+		req.pipe(host);
+		host.pipe(res);
+	}
+
 	_request = async (route, method, body) =>
 		new Promise((resolve, reject) => {
 			const payload = {
