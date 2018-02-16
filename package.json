@@ -6,6 +6,7 @@
   "keywords": [],
   "dependencies": {
     "async": "2.0.1",
+    "babel-register": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "captains-log": "^2.0.0",
     "chance": "^1.0.10",
@@ -46,12 +47,12 @@
     "swagger-ui-dist": "^3.0.14"
   },
   "scripts": {
-    "start": "npm run lint && babel-node app.js && NODE_ENV=production node app.js",
+    "start": "nodemon --exec npm run dev",
+    "dev": "npm run lint && babel-node app.js",
+    "release": "npm run lint && NODE_ENV=production babel-node app.js",
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "node ./node_modules/eslint/bin/eslint . --format table --max-warnings=1 --fix && echo '✔  Your code looks good.'",
-    "debug": "npm run lint && node debug app.js",
-    "babel": "npm run lint && babel-node app.js",
-    "restartable": "nodemon --exec npm start"
+    "debug": "npm run lint && node debug app.js"
   },
   "main": "app.js",
   "repository": {

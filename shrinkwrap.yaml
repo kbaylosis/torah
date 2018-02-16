@@ -1,5 +1,6 @@
 dependencies:
   async: 2.0.1
+  babel-register: 6.26.0
   bcryptjs: 2.4.3
   captains-log: 2.0.0
   chance: 1.0.13
@@ -7548,6 +7549,7 @@ specifiers:
   babel-plugin-transform-class-properties: ^6.24.1
   babel-preset-env: ^1.6.1
   babel-preset-stage-0: ^6.24.1
+  babel-register: ^6.26.0
   bcryptjs: ^2.4.3
   captains-log: ^2.0.0
   chance: ^1.0.10
