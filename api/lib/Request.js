@@ -25,13 +25,10 @@ class Request {
 			return res.notFound();
 		}
 
-		const host = request(url).on("error", (err) => {
+		req.pipe(request(url).on("error", (err) => {
 			sails.log.error(err);
 			res.notFound();
-		});
-
-		req.pipe(host);
-		host.pipe(res);
+		})).pipe(res);
 	}
 
 	_request = async (route, method, body) =>
