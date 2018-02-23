@@ -48,11 +48,11 @@
   },
   "scripts": {
     "start": "nodemon --exec npm run dev",
-    "dev": "npm run lint && babel-node app.js",
-    "release": "npm run lint && NODE_ENV=production babel-node app.js",
+    "dev": "npm run lint && node server.js",
+    "release": "npm run lint && NODE_ENV=production node server.js",
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "node ./node_modules/eslint/bin/eslint . --format table --max-warnings=1 --fix && echo '✔  Your code looks good.'",
-    "debug": "npm run lint && node debug app.js"
+    "debug": "npm run lint && node debug server.js"
   },
   "main": "app.js",
   "repository": {
