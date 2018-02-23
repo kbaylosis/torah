@@ -20,12 +20,13 @@ class Request {
 
 	delete = (route) => this._request(route, "DELETE");
 
-	static pipe = (url, req, res) => {
+	static pipe = (url, req, res, options = {}) => {
 		if (!url) {
 			return res.notFound();
 		}
 
-		req.pipe(request(url).on("error", (err) => {
+		options.url = url;
+		req.pipe(request(options).on("error", (err) => {
 			sails.log.error(err);
 			res.notFound();
 		})).pipe(res);
